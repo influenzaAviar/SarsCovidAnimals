@@ -86,8 +86,7 @@ require([
       "<ul><li>Location: {location_name}.</li>" +
       "<li>Report date: {reporting_date}.</li>" +
       "<li>Species: {species_resum}.</li>" +
-      "<li>Disease: {disease}.</li>" +
-      "<li>More info: <a href='http://empres-i.fao.org/eipws3g/2/obd?idOutbreak={event_id}'> Enlace</a></li>";
+      "<li>Disease: {disease}.</li>";
 
     return content;
 
