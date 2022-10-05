@@ -84,12 +84,12 @@ require([
   function getInfoBrotes(feature) {
     content = "<p>Número de casos: <b>{cases}</b> " +
       "<ul><li>Region: {region}.</li>" +
-      "<ul><li>Country: {country}.</li>" +
-      "<ul><li>Location: {location_name}.</li>" +
+      "<li>Country: {country}.</li>" +
+      "<li>Location: {location_name}.</li>" +
       "<li>Report date: {reporting_date}.</li>" +
       "<li>Species: {Species}.</li>" +
       "<li>Scientific name: {scientific_name}.</li>" +
-      "<li>Type animal<: {Type animal<}.</li>";
+      "<li>Type animal: {type_animal}.</li>";
 
     return content;
 
