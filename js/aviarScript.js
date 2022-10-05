@@ -65,7 +65,7 @@ require([
     visible: true,
     renderer: iconSymbolRenderer,
     popupTemplate: {
-      title: "Pais: {country}",
+      title: "SARS-CoV-2 in animals",
       content: getInfoBrotes,
       visible: false,
       returnGeometry: true,
@@ -83,10 +83,13 @@ require([
 
   function getInfoBrotes(feature) {
     content = "<p>Número de casos: <b>{cases}</b> " +
+      "<ul><li>Region: {region}.</li>" +
+      "<ul><li>Country: {country}.</li>" +
       "<ul><li>Location: {location_name}.</li>" +
       "<li>Report date: {reporting_date}.</li>" +
-      "<li>Species: {species_resum}.</li>" +
-      "<li>Disease: {disease}.</li>";
+      "<li>Species: {Species}.</li>" +
+      "<li>Scientific name: {scientific_name}.</li>" +
+      "<li>Type animal<: {Type animal<}.</li>";
 
     return content;
 
