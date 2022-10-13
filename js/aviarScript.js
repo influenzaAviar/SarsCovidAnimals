@@ -33,37 +33,59 @@ require([
   Query,
   Graphic) => {
 
-
-
-
-  // Create iconSymbol and add to renderer
-  const iconSymbol = {
-    type: "point-3d", // autocasts as new PointSymbol3D()
-    symbolLayers: [
-      {
-        type: "icon", // autocasts as new IconSymbol3DLayer()
-        size: 10,
-        // resource: {
-        //   primitive: "square"
-        // },
-        material: {
-          color: [255, 0, 0, 0.4]
-        }
-      }
-    ]
-  };
-  const iconSymbolRenderer = {
-    type: "simple", // autocasts as new SimpleRenderer()
-    symbol: iconSymbol
-  };
   // Request feature layers and overwrite renderer 
   const featureLayerBrotes = new FeatureLayer({
     url: "https://gis.inia.es/server/rest/services/Hosted/SARS_animals_OIE/FeatureServer",
-    copyright: "Influenza Aviar",
+    copyright: "Carlos Blanco Urbina",
     title: "Brotes",
     outFields: ['*'],
     visible: true,
-    renderer: iconSymbolRenderer,
+    
+    renderer: {
+      type: "simple",
+      field: "Types",
+
+      symbol: {
+          type: "simple-marker",
+          label: "Type animal",
+          style: "circle",
+          size: "20px",
+          outline: null,
+      },
+
+      label: "Type animal",
+      visualVariables: [
+
+          {
+              type: "color",
+              field: "Types",
+              stops: [
+                  {
+                      value: 3,
+                      color: [255, 255, 115, 0.6],
+                      label: "Pet",
+                  }, {
+                      value: 2,
+                      color: [255, 255, 255, 0.6],
+                      label: "Domestic",
+                  },
+                  {
+                      value: 4,
+                      color: [163, 255, 115, 0.6],
+                      label: "Wild",
+                  },
+                  {
+                      value: 1,
+                      color: [115, 223, 255, 0.6],
+                      label: "Captive",
+                  }
+              ]
+          },
+          
+      ],
+
+  },
+    
     popupTemplate: {
       title: "SARS-CoV-2 in animals",
       content: getInfoBrotes,
