@@ -255,9 +255,9 @@ require([
     startBrotes.setDate(startBrotes.getDate());
     startBrotes.setDate(startBrotes.getDate() - 1095); */
 
-    const LastMonday = new Date(2022, 7, 10);
-    /* LastMonday.setHours(0, 0, 0, 0);
-    LastMonday.setDate(LastMonday.getDate()); */
+    const LastMonday = new Date();
+    LastMonday.setHours(0, 0, 0, 0);
+    LastMonday.setDate(LastMonday.getDate());
 
     // set time slider's full extent to
     // until end date of layer's fullTimeExtent
