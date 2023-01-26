@@ -47,18 +47,18 @@ require([
 
       symbol: {
           type: "simple-marker",
-          label: "Type animal",
+          label: "type_animal_value",
           style: "circle",
           size: "20px",
           outline: null,
       },
 
-      label: "Type animal",
+      label: "type_animal_value",
       visualVariables: [
 
           {
               type: "color",
-              field: "Type_animal_value,
+              field: "Type_animal_value",
               stops: [
                   {
                       value: 3,
