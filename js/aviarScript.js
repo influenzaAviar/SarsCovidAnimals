@@ -58,7 +58,7 @@ require([
 
           {
               type: "color",
-              field: "Types",
+              field: "Type_animal_value,
               stops: [
                   {
                       value: 3,
