@@ -35,7 +35,7 @@ require([
 
   // Request feature layers and overwrite renderer 
   const featureLayerBrotes = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/CISA/capa_sars_XY/MapServer",
+    url: "https://gis.inia.es/server/rest/services/Hosted/SARS_animals_OIE/FeatureServer",
     copyright: "Carlos Blanco Urbina",
     title: "Brotes",
     outFields: ['*'],
@@ -47,18 +47,18 @@ require([
 
       symbol: {
           type: "simple-marker",
-          label: "type animal",
+          label: "Type animal",
           style: "circle",
           size: "20px",
           outline: null,
       },
 
-      label: "type animal",
+      label: "Type animal",
       visualVariables: [
 
           {
               type: "color",
-              field: "Type_animal_value",
+              field: "Types",
               stops: [
                   {
                       value: 3,
