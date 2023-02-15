@@ -47,13 +47,13 @@ require([
 
       symbol: {
           type: "simple-marker",
-          label: "Type animal",
+          label: "Type_animal",
           style: "circle",
           size: "20px",
           outline: null,
       },
 
-      label: "Type animal",
+      label: "Type_animal",
       visualVariables: [
 
           {
@@ -93,7 +93,7 @@ require([
       returnGeometry: true,
       fieldInfos: [
         {
-          fieldName: 'reporting_date',
+          fieldName: 'Reporting_date',
           format: {
             dateFormat: 'short-date'
           }
@@ -105,13 +105,13 @@ require([
 
   function getInfoBrotes(feature) {
     content = "<p>Número de casos: <b>{cases}</b> " +
-      "<ul><li>Region: {region}.</li>" +
-      "<ul><li>Country: {country}.</li>" +
-      "<ul><li>Location: {location_name}.</li>" +
-      "<li>Report date: {reporting_date}.</li>" +
+      "<ul><li>Region: {Region}.</li>" +
+      "<ul><li>Country: {Country}.</li>" +
+      "<ul><li>Location: {Location_name}.</li>" +
+      "<li>Report date: {Reporting_date}.</li>" +
       "<li>Species: {Species}.</li>" +
-      "<li>Scientific name: {scientific_name}.</li>" +
-      "<li>Type animal: {type_animal}.</li>" ;
+      "<li>Scientific name: {Scientific_name}.</li>" +
+      "<li>Type animal: {Type_animal}.</li>" ;
 
     return content;
 
