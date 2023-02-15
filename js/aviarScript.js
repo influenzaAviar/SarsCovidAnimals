@@ -32,6 +32,90 @@ require([
   QueryTask,
   Query,
   Graphic) => {
+  
+  const colorsB = [[255, 255, 115, 0.6], [255, 255, 255, 0.6], [163, 255, 115, 0.6], [115, 223, 255, 0.6]];
+
+  const commonPropertiesB = {
+    type: "simple-marker",
+    // width: "4px",
+    size: "10px",
+    style: "circle",
+    outline: null,
+  };
+
+  // Symbol for Interstate highways
+  const PetSym = {
+    ...commonPropertiesB,
+    color: colorsB[0]
+  };
+
+  // Symbol for U.S. Highways
+  const DomesticSym = {
+    ...commonPropertiesB,
+    color: colorsB[1]
+  };
+
+  // Symbol for state highways
+  const WildSym = {
+    ...commonPropertiesB,
+    color: colorsB[2]
+  } ;
+// Symbol for other major highways
+const CaptiveSym = {
+  ...commonProperties,
+  color: colorsB[3]
+}/*;
+// Symbol for other major highways
+const A5Sym = {
+  ...commonProperties,
+  color: colorsB[4]
+}; */
+
+  // Symbol for other major highways
+  //   const otherSym = {
+  //   ...commonProperties,
+  //   color: colors[5]
+  //  };
+
+
+
+  const brotesRenderer = {
+    type: "unique-value", // autocasts as new UniqueValueRenderer()
+    legendOptions: {
+      title: "Especies"
+    },
+    //defaultSymbol: otherSym,
+    //defaultLabel: "Other",
+    field: "is_wild",
+
+    uniqueValueInfos: [
+      {
+        value: "Wild", // code for U.S. highways
+        symbol: WildSym,
+        label: "Wild"
+      },
+      {
+        value: "Domestic", // code for U.S. highways
+        symbol: DomesticSym,
+        label: "Domestic"
+      },
+      {
+        value: "Pet", // code for interstates/freeways
+        symbol: PetSym,
+        label: "Pet"
+      }/* ,
+    {
+      value: "Captive", // code for U.S. highways
+      symbol: CaptiveSym,
+      label: "Captive"
+    },
+    {
+      value: "A5", // code for U.S. highways
+      symbol: A5Sym,
+      label: "Major road"
+    } */
+    ]
+  };
 
   // Request feature layers and overwrite renderer https://gis.inia.es/server/rest/services/Hosted/SARS_animals_OIE/FeatureServer
   const featureLayerBrotes = new FeatureLayer({
@@ -40,51 +124,8 @@ require([
     title: "Brotes",
     outFields: ['*'],
     visible: true,
+    renderer: brotesRenderer,
     
-    renderer: {
-      type: "simple",
-      field: "Types",
-
-      symbol: {
-          type: "simple-marker",
-          label: "Type_animal",
-          style: "circle",
-          size: "20px",
-          outline: null,
-      },
-
-      label: "Type_animal",
-      visualVariables: [
-
-          {
-              type: "color",
-              field: "Types",
-              stops: [
-                  {
-                      value: 3,
-                      color: [255, 255, 115, 0.6],
-                      label: "Pet",
-                  }, {
-                      value: 2,
-                      color: [255, 255, 255, 0.6],
-                      label: "Domestic",
-                  },
-                  {
-                      value: 4,
-                      color: [163, 255, 115, 0.6],
-                      label: "Wild",
-                  },
-                  {
-                      value: 1,
-                      color: [115, 223, 255, 0.6],
-                      label: "Captive",
-                  }
-              ]
-          },
-          
-      ],
-
-  },
     
     popupTemplate: {
       title: "SARS-CoV-2 in animals",
