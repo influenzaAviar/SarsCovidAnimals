@@ -58,7 +58,7 @@ require([
   };
   // Request feature layers and overwrite renderer 
   const featureLayerBrotes = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/histAviar/FeatureServer",
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/SARS_animals_OIE/FeatureServer/0",
     copyright: "Influenza Aviar",
     title: "Brotes",
     outFields: ['*'],
